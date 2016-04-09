@@ -36,7 +36,7 @@ public class GameComponentManager {
 
     public void newGame() {
         score.resetScore();
-        snake.createStartSnake();
+        snake.createStartSnake(); //unnecessary?
     }
 
 

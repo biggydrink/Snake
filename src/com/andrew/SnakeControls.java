@@ -18,16 +18,16 @@ public class SnakeControls implements KeyListener {
     public void keyPressed(KeyEvent ev) {
 
         if (ev.getKeyCode() == KeyEvent.VK_DOWN) {
-            snake.snakeDown();
+            snake.snakeDown(); // snake moves down if not already moving down or up
         }
         if (ev.getKeyCode() == KeyEvent.VK_UP) {
-            snake.snakeUp();
+            snake.snakeUp(); // snake moves up if not already moving up or down
         }
         if (ev.getKeyCode() == KeyEvent.VK_LEFT) {
-            snake.snakeLeft();
+            snake.snakeLeft(); // snake moves left if not already moving left or right
         }
         if (ev.getKeyCode() == KeyEvent.VK_RIGHT) {
-            snake.snakeRight();
+            snake.snakeRight(); // snake moves right if not already moving right or left
         }
 
     }

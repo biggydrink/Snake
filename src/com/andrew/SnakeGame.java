@@ -13,7 +13,7 @@ public class SnakeGame {
 	public static int xSquares ;    //How many squares in the grid?
 	public static int ySquares ;
 
-	public final static int squareSize = 50;
+	public final static int squareSize = 50; // How many pixels the game grid squares are
 
 	protected static Snake snake ;
 
@@ -32,7 +32,7 @@ public class SnakeGame {
 	private static int gameStage = BEFORE_GAME;  //use this to figure out what should be happening. 
 	//Other classes like Snake and DrawSnakeGamePanel will query this, and change its value
 
-	protected static long clockInterval = 500; //controls game speed
+	protected static long clockInterval = 250; //controls game speed
 	//Every time the clock ticks, the snake moves
 	//This is the time between clock ticks, in milliseconds
 	//1000 milliseconds = 1 second.
@@ -59,7 +59,7 @@ public class SnakeGame {
 	private static void createAndShowGUI() {
 		//Create and set up the window.
 		snakeFrame = new JFrame();
-		snakeFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		snakeFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); // application closes when window is closed
 
 		snakeFrame.setSize(xPixelMaxDimension, yPixelMaxDimension);
 		snakeFrame.setUndecorated(true); //hide title bar
@@ -82,6 +82,7 @@ public class SnakeGame {
 		snakeFrame.setVisible(true);
 	}
 
+	/** Sets up the basic game data, including the size of the game board, snake and kibble objects, and score. */
 	private static void initializeGame() {
 
 		//set up score, snake and first kibble
@@ -91,25 +92,25 @@ public class SnakeGame {
 		componentManager = new GameComponentManager();
 		snake = new Snake(xSquares, ySquares);
 		Kibble kibble = new Kibble();
-
-		componentManager.addSnake(snake);
-		componentManager.addKibble(kibble);
-
-		//TODO if you have other components, add them here.
-
 		score = new Score();
 
+		// Pass snake and kibble to the component manager to deal with them from now on
+		componentManager.addSnake(snake);
+		componentManager.addKibble(kibble);
 		componentManager.addScore(score);
+
+		//TODO if you have other components, add them here.
 
 		gameStage = BEFORE_GAME;
 	}
 
+	/** Runs when a new game starts. This is distinct from when the program starts */
 	protected static void newGame() {
 		Timer timer = new Timer();
-		gameStage = DURING_GAME;
+		gameStage = DURING_GAME; // game has started
 		GameClock clockTick = new GameClock(componentManager, snakePanel);
-		componentManager.newGame();
-		timer.scheduleAtFixedRate(clockTick, 0, clockInterval);
+		componentManager.newGame(); // Restarts score, snake TODO see if this is unnecessary
+		timer.scheduleAtFixedRate(clockTick, 0, clockInterval); // Sets up schedule for timer, using clockInterval
 	}
 
 

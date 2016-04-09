@@ -17,7 +17,8 @@ public class DrawSnakeGamePanel extends JPanel {
 	private Snake snake;
 	private Kibble kibble;
 	private Score score;
-	
+	private Colors colors = new Colors("Nokia");
+
 	DrawSnakeGamePanel(GameComponentManager components){
 		this.snake = components.getSnake();
 		this.kibble = components.getKibble();
@@ -29,7 +30,8 @@ public class DrawSnakeGamePanel extends JPanel {
     }
 
     public void paintComponent(Graphics g) {
-        super.paintComponent(g);       
+
+        super.paintComponent(g);
 
         /* Where are we at in the game? 4 phases.. 
          * 1. Before game starts
@@ -96,10 +98,12 @@ public class DrawSnakeGamePanel extends JPanel {
 		int maxX = SnakeGame.xPixelMaxDimension;
 		int maxY= SnakeGame.yPixelMaxDimension;
 		int squareSize = SnakeGame.squareSize;
-		
-		g.clearRect(0, 0, maxX, maxY);
 
-		g.setColor(Color.RED);
+		g.setColor(colors.boardColor);
+		g.fillRect(0, 0, maxX, maxY);
+
+		g.setColor(colors.gridColor);
+
 
 		//Draw grid - horizontal lines
 		for (int y=0; y <= maxY ; y+= squareSize){			
@@ -110,12 +114,14 @@ public class DrawSnakeGamePanel extends JPanel {
 		for (int x=0; x <= maxX ; x+= squareSize){			
 			g.drawLine(x, 0, x, maxY);
 		}
+
 	}
 
 	private void displayKibble(Graphics g) {
 
 		//Draw the kibble in green
-		g.setColor(Color.GREEN);
+		//g.setColor(Color.GREEN);
+		g.setColor(colors.kibbleColor);
 
 		int x = kibble.getKibbleX() * SnakeGame.squareSize;
 		int y = kibble.getKibbleY() * SnakeGame.squareSize;
@@ -132,12 +138,14 @@ public class DrawSnakeGamePanel extends JPanel {
 		LinkedList<Square> coordinates = snake.getSnakeSquares();
 		
 		//Draw head in grey
-		g.setColor(Color.LIGHT_GRAY);
+		//g.setColor(Color.LIGHT_GRAY);
+		g.setColor(colors.snakeHeadColor);
 		Square head = coordinates.pop();
 		g.fillRect(head.x * size, head.y * size, size, size);
 		
 		//Draw rest of snake in black
-		g.setColor(Color.BLACK);
+		//g.setColor(Color.BLACK);
+		g.setColor(colors.snakeBodyColor);
 		for (Square s : coordinates) {
 			g.fillRect(s.x * size, s.y * size , size, size);
 		}
