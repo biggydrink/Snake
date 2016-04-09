@@ -38,9 +38,7 @@ public class Kibble {
 		return kibbleY;
 	}
 
-
 	public Square getSquare() {
-
 		return new Square(kibbleX, kibbleY);
 	}
 }

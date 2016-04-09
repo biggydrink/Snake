@@ -17,12 +17,14 @@ public class DrawSnakeGamePanel extends JPanel {
 	private Snake snake;
 	private Kibble kibble;
 	private Score score;
-	private Colors colors = new Colors("Nokia2");
+	private Wall wall;
+	private Colors colors = new Colors("Nokia");
 
 	DrawSnakeGamePanel(GameComponentManager components){
 		this.snake = components.getSnake();
 		this.kibble = components.getKibble();
 		this.score = components.getScore();
+		this.wall = components.getWall();
 	}
 	
 	public Dimension getPreferredSize() {
@@ -90,7 +92,8 @@ public class DrawSnakeGamePanel extends JPanel {
 	private void displayGame(Graphics g) {
 		displayGameGrid(g);
 		displaySnake(g);
-		displayKibble(g);	
+		displayKibble(g);
+		displayWall(g);
 	}
 
 	private void displayGameGrid(Graphics g) {
@@ -119,8 +122,7 @@ public class DrawSnakeGamePanel extends JPanel {
 
 	private void displayKibble(Graphics g) {
 
-		//Draw the kibble in green
-		//g.setColor(Color.GREEN);
+		//Draw the kibble in kibble Color
 		g.setColor(colors.kibbleColor);
 
 		int x = kibble.getKibbleX() * SnakeGame.squareSize;
@@ -128,6 +130,17 @@ public class DrawSnakeGamePanel extends JPanel {
 
 		g.fillRect(x+1, y+1, SnakeGame.squareSize-2, SnakeGame.squareSize-2);
 		
+	}
+
+	private void displayWall(Graphics g) {
+
+		// Draw the wall in wall Color
+		g.setColor(colors.wallColor);
+
+		int x = wall.getWallX() * SnakeGame.squareSize;
+		int y = wall.getWallY() * SnakeGame.squareSize;
+
+		g.fillRect(x,y,SnakeGame.squareSize,SnakeGame.squareSize);
 	}
 
 

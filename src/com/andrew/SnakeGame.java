@@ -17,6 +17,7 @@ public class SnakeGame {
 	protected static Snake snake ;
 	private static GameComponentManager componentManager;
 	protected static Score score;
+	protected static Wall wall;
 
 	protected static boolean wrap = true;
 
@@ -91,12 +92,14 @@ public class SnakeGame {
 		componentManager = new GameComponentManager();
 		snake = new Snake(xSquares, ySquares);
 		Kibble kibble = new Kibble();
+		Wall wall = new Wall();
 		score = new Score();
 
 		// Pass snake and kibble to the component manager to deal with them from now on
 		componentManager.addSnake(snake);
 		componentManager.addKibble(kibble);
 		componentManager.addScore(score);
+		componentManager.addWall(wall);
 
 		//TODO if you have other components, add them here.
 

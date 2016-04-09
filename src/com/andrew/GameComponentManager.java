@@ -8,6 +8,7 @@ public class GameComponentManager {
     private Kibble kibble;
     private Snake snake;
     private Score score;
+    private Wall wall;
 
     /** Called every clock tick. Tell components to interact/update,
      * manage interactions, update score etc.
@@ -19,6 +20,11 @@ public class GameComponentManager {
 
         snake.moveSnake();
 
+
+        // Check if snake hit wall
+        if (snake.isThisInSnake(wall.getSquare())) {
+            SnakeGame.setGameStage(SnakeGame.GAME_OVER);
+        }
         //Ask the snake if it is on top of the kibble
         if (snake.isThisInSnake(kibble.getSquare())) {
 			//If so, tell the snake that it ate the kibble
@@ -52,6 +58,10 @@ public class GameComponentManager {
         this.score = score;
     }
 
+    public void addWall(Wall wall) {
+        this.wall = wall;
+    }
+
     public Score getScore() {
         return score;
     }
@@ -62,6 +72,10 @@ public class GameComponentManager {
 
     public Snake getSnake() {
         return snake;
+    }
+
+    public Wall getWall() {
+        return wall;
     }
 
 }
