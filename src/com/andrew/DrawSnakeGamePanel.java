@@ -17,7 +17,7 @@ public class DrawSnakeGamePanel extends JPanel {
 	private Snake snake;
 	private Kibble kibble;
 	private Score score;
-	private Colors colors = new Colors("Nokia");
+	private Colors colors = new Colors("Nokia2");
 
 	DrawSnakeGamePanel(GameComponentManager components){
 		this.snake = components.getSnake();
@@ -137,14 +137,12 @@ public class DrawSnakeGamePanel extends JPanel {
 
 		LinkedList<Square> coordinates = snake.getSnakeSquares();
 		
-		//Draw head in grey
-		//g.setColor(Color.LIGHT_GRAY);
+		// Draw head in head color
 		g.setColor(colors.snakeHeadColor);
 		Square head = coordinates.pop();
 		g.fillRect(head.x * size, head.y * size, size, size);
 		
-		//Draw rest of snake in black
-		//g.setColor(Color.BLACK);
+		// Draw body in body color
 		g.setColor(colors.snakeBodyColor);
 		for (Square s : coordinates) {
 			g.fillRect(s.x * size, s.y * size , size, size);

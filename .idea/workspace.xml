@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d960ab6a-57ba-4965-840d-c1a783f88d0a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/andrew/Colors.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/andrew/DrawSnakeGamePanel.java" afterPath="$PROJECT_DIR$/src/com/andrew/DrawSnakeGamePanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/andrew/GameClock.java" afterPath="$PROJECT_DIR$/src/com/andrew/GameClock.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/andrew/GameComponentManager.java" afterPath="$PROJECT_DIR$/src/com/andrew/GameComponentManager.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/andrew/Snake.java" afterPath="$PROJECT_DIR$/src/com/andrew/Snake.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/andrew/SnakeControls.java" afterPath="$PROJECT_DIR$/src/com/andrew/SnakeControls.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/andrew/SnakeGame.java" afterPath="$PROJECT_DIR$/src/com/andrew/SnakeGame.java" />
     </list>
     <ignored path="SNAKE-ORIGINAL.iws" />
@@ -36,7 +32,7 @@
         <entry file="file://$PROJECT_DIR$/src/com/andrew/SnakeControls.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="29" column="88" selection-start-line="29" selection-start-column="88" selection-end-line="29" selection-end-column="88" />
+              <caret line="20" column="44" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#258#259#0" expanded="true" />
@@ -50,7 +46,7 @@
         <entry file="file://$PROJECT_DIR$/src/com/andrew/GameComponentManager.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="38" column="8" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
+              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
               <folding>
                 <element signature="e#1270#1271#0" expanded="true" />
                 <element signature="e#1306#1307#0" expanded="true" />
@@ -72,8 +68,8 @@
       <file leaf-file-name="Snake.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/andrew/Snake.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.086957">
-              <caret line="114" column="9" selection-start-line="114" selection-start-column="9" selection-end-line="114" selection-end-column="9" />
+            <state vertical-scroll-proportion="-28.195652">
+              <caret line="121" column="60" selection-start-line="121" selection-start-column="60" selection-end-line="121" selection-end-column="60" />
               <folding />
             </state>
           </provider>
@@ -82,14 +78,14 @@
       <file leaf-file-name="SnakeGame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/andrew/SnakeGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="6.7173915">
-              <caret line="79" column="34" selection-start-line="79" selection-start-column="34" selection-end-line="79" selection-end-column="34" />
+            <state vertical-scroll-proportion="25.826086">
+              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#4272#4273#0" expanded="true" />
-                <element signature="e#4295#4296#0" expanded="true" />
-                <element signature="e#4346#4347#0" expanded="true" />
-                <element signature="e#4384#4385#0" expanded="true" />
+                <element signature="e#4348#4349#0" expanded="true" />
+                <element signature="e#4371#4372#0" expanded="true" />
+                <element signature="e#4422#4423#0" expanded="true" />
+                <element signature="e#4460#4461#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -110,7 +106,14 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-              <folding />
+              <folding>
+                <element signature="e#421#422#0" expanded="true" />
+                <element signature="e#437#438#0" expanded="true" />
+                <element signature="e#617#618#0" expanded="true" />
+                <element signature="e#654#655#0" expanded="true" />
+                <element signature="e#839#840#0" expanded="true" />
+                <element signature="e#880#881#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -138,8 +141,8 @@
       <file leaf-file-name="DrawSnakeGamePanel.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/andrew/DrawSnakeGamePanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.0337079">
-              <caret line="19" column="45" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="45" />
+            <state vertical-scroll-proportion="0.3539326">
+              <caret line="17" column="26" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -186,12 +189,12 @@
         <option value="$PROJECT_DIR$/src/com/clara/SnakeGame.java" />
         <option value="$PROJECT_DIR$/src/com/clara/Snake.java" />
         <option value="$PROJECT_DIR$/src/com/andrew/GameClock.java" />
-        <option value="$PROJECT_DIR$/src/com/andrew/DrawSnakeGamePanel.java" />
         <option value="$PROJECT_DIR$/src/com/andrew/Colors.java" />
         <option value="$PROJECT_DIR$/src/com/andrew/GameComponentManager.java" />
         <option value="$PROJECT_DIR$/src/com/andrew/SnakeControls.java" />
-        <option value="$PROJECT_DIR$/src/com/andrew/SnakeGame.java" />
         <option value="$PROJECT_DIR$/src/com/andrew/Snake.java" />
+        <option value="$PROJECT_DIR$/src/com/andrew/SnakeGame.java" />
+        <option value="$PROJECT_DIR$/src/com/andrew/DrawSnakeGamePanel.java" />
       </list>
     </option>
   </component>
@@ -199,6 +202,13 @@
   <component name="JsBuildToolPackageJson" detection-done="true" />
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Bundled (Maven 3)" />
+      </MavenGeneralSettings>
+    </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-12" />
@@ -780,7 +790,7 @@
       <workItem from="1458754096486" duration="8033000" />
       <workItem from="1459430136429" duration="2426000" />
       <workItem from="1459443635049" duration="8030000" />
-      <workItem from="1460211227169" duration="12175000" />
+      <workItem from="1460211227169" duration="14964000" />
     </task>
     <task id="LOCAL-00001" summary="GameComponentManager class to manage Snake, Kibble, other game play objects">
       <created>1458757336662</created>
@@ -818,11 +828,17 @@
       <option name="project" value="LOCAL" />
       <updated>1460211300486</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Colors &amp; Comments&#10;Added Colors class to handle color palettes&#10;Added comments to help explain game in more detail">
+      <created>1460236071868</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1460236071868</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30664000" />
+    <option name="totallyTimeSpent" value="33453000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-12" y="-12" width="3224" height="1754" extended-state="6" />
@@ -902,14 +918,15 @@
     <MESSAGE value="Tidying" />
     <MESSAGE value="Refactor snake internal data structure. This version is simpler." />
     <MESSAGE value="Refactored com.clara to com.andrew" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored com.clara to com.andrew" />
+    <MESSAGE value="Colors &amp; Comments&#10;Added Colors class to handle color palettes&#10;Added comments to help explain game in more detail" />
+    <option name="LAST_COMMIT_MESSAGE" value="Colors &amp; Comments&#10;Added Colors class to handle color palettes&#10;Added comments to help explain game in more detail" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/andrew/SnakeGame.java</url>
-          <line>51</line>
+          <line>50</line>
           <properties />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
@@ -948,7 +965,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="e#421#422#0" expanded="true" />
+            <element signature="e#437#438#0" expanded="true" />
+            <element signature="e#617#618#0" expanded="true" />
+            <element signature="e#654#655#0" expanded="true" />
+            <element signature="e#839#840#0" expanded="true" />
+            <element signature="e#880#881#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1018,10 +1042,10 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4272#4273#0" expanded="true" />
-            <element signature="e#4295#4296#0" expanded="true" />
-            <element signature="e#4346#4347#0" expanded="true" />
-            <element signature="e#4384#4385#0" expanded="true" />
+            <element signature="e#4348#4349#0" expanded="true" />
+            <element signature="e#4371#4372#0" expanded="true" />
+            <element signature="e#4422#4423#0" expanded="true" />
+            <element signature="e#4460#4461#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1061,10 +1085,10 @@
           <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4272#4273#0" expanded="true" />
-            <element signature="e#4295#4296#0" expanded="true" />
-            <element signature="e#4346#4347#0" expanded="true" />
-            <element signature="e#4384#4385#0" expanded="true" />
+            <element signature="e#4348#4349#0" expanded="true" />
+            <element signature="e#4371#4372#0" expanded="true" />
+            <element signature="e#4422#4423#0" expanded="true" />
+            <element signature="e#4460#4461#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1140,10 +1164,10 @@
           <caret line="84" column="42" selection-start-line="84" selection-start-column="42" selection-end-line="84" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4272#4273#0" expanded="true" />
-            <element signature="e#4295#4296#0" expanded="true" />
-            <element signature="e#4346#4347#0" expanded="true" />
-            <element signature="e#4384#4385#0" expanded="true" />
+            <element signature="e#4348#4349#0" expanded="true" />
+            <element signature="e#4371#4372#0" expanded="true" />
+            <element signature="e#4422#4423#0" expanded="true" />
+            <element signature="e#4460#4461#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1252,11 +1276,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/andrew/Snake.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-28.195652">
+          <caret line="121" column="60" selection-start-line="121" selection-start-column="60" selection-end-line="121" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/andrew/SnakeGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="25.826086">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4348#4349#0" expanded="true" />
+            <element signature="e#4371#4372#0" expanded="true" />
+            <element signature="e#4422#4423#0" expanded="true" />
+            <element signature="e#4460#4461#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/andrew/Square.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/andrew/Score.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <folding>
+            <element signature="e#421#422#0" expanded="true" />
+            <element signature="e#437#438#0" expanded="true" />
+            <element signature="e#617#618#0" expanded="true" />
+            <element signature="e#654#655#0" expanded="true" />
+            <element signature="e#839#840#0" expanded="true" />
+            <element signature="e#880#881#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1268,40 +1329,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/andrew/Score.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/andrew/GameClock.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.5869565">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/andrew/SnakeGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="6.7173915">
-          <caret line="79" column="34" selection-start-line="79" selection-start-column="34" selection-end-line="79" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4272#4273#0" expanded="true" />
-            <element signature="e#4295#4296#0" expanded="true" />
-            <element signature="e#4346#4347#0" expanded="true" />
-            <element signature="e#4384#4385#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/andrew/SnakeControls.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="88" selection-start-line="29" selection-start-column="88" selection-end-line="29" selection-end-column="88" />
+          <caret line="20" column="44" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#258#259#0" expanded="true" />
@@ -1313,7 +1344,7 @@
     <entry file="file://$PROJECT_DIR$/src/com/andrew/GameComponentManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="38" column="8" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding>
             <element signature="e#1270#1271#0" expanded="true" />
             <element signature="e#1306#1307#0" expanded="true" />
@@ -1331,10 +1362,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/andrew/Snake.java">
+    <entry file="file://$PROJECT_DIR$/src/com/andrew/GameClock.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.086957">
-          <caret line="114" column="9" selection-start-line="114" selection-start-column="9" selection-end-line="114" selection-end-column="9" />
+        <state vertical-scroll-proportion="-0.5869565">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1349,8 +1380,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/andrew/DrawSnakeGamePanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.0337079">
-          <caret line="19" column="45" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="45" />
+        <state vertical-scroll-proportion="0.3539326">
+          <caret line="17" column="26" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
           <folding />
         </state>
       </provider>

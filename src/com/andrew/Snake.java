@@ -105,14 +105,31 @@ public class Snake {
 		Square currentHead = snakeSquares.getFirst();
 		int headX = currentHead.x;
 		int headY = currentHead.y;
+		int newHeadX = currentHead.x + currentHeading[0];
+		int newHeadY = currentHead.y + currentHeading[1];
 
-		Square newHead = new Square(headX + currentHeading[0], headY + currentHeading[1]);
 
-		//Does this make snake hit the wall? Game over.
-		if (headX >= maxX || headX < 0 || headY >= maxY || headY < 0 ) {
-			SnakeGame.setGameStage(SnakeGame.GAME_OVER);
-			return;
+
+		if (SnakeGame.wrap) {
+			// Snake wraps around game board
+			if (newHeadX >= maxX) { newHeadX = 0; }
+			else if (newHeadX < 0) { newHeadX = maxX-1; }
+			if (newHeadY >= maxY) { newHeadY = 0; }
+			else if (newHeadY < 0) { newHeadY = maxY-1; }
+		} else {
+			//Does this make snake hit the wall? Game over.
+			if (newHeadX >= maxX || newHeadX < 0 || newHeadY >= maxY || newHeadY < 0 ) {
+				SnakeGame.setGameStage(SnakeGame.GAME_OVER);
+				return;
+			}
 		}
+
+
+
+
+
+		//Square newHead = new Square(headX + currentHeading[0], headY + currentHeading[1]);
+		Square newHead = new Square(newHeadX,newHeadY);
 
 		//Does this make the snake eat its tail? Game over.
 		if (isThisInSnake(newHead)) {

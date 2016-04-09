@@ -7,19 +7,18 @@ import javax.swing.*;
 
 public class SnakeGame {
 
+	// Set pixels and game grid in squares
 	public final static int xPixelMaxDimension = 501;  //Pixels in window. 501 to have 50-pixel squares plus 1 to draw a border on last square
 	public final static int yPixelMaxDimension = 501;
-
 	public static int xSquares ;    //How many squares in the grid?
 	public static int ySquares ;
-
 	public final static int squareSize = 50; // How many pixels the game grid squares are
 
 	protected static Snake snake ;
-
 	private static GameComponentManager componentManager;
-
 	protected static Score score;
+
+	protected static boolean wrap = true;
 
 	static final int BEFORE_GAME = 1;
 	static final int DURING_GAME = 2;
