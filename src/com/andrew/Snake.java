@@ -23,7 +23,7 @@ public class Snake {
 	public Snake(int maxX, int maxY){
 		this.maxX = maxX;
 		this.maxY = maxY;
-		//createStartSnake();
+		createStartSnake();
 	}
 
 	protected void createStartSnake(){

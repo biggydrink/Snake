@@ -5,6 +5,10 @@ import java.util.Timer;
 import javax.swing.*;
 
 
+
+
+
+
 public class SnakeGame {
 
 	// Set pixels and game grid in squares
@@ -12,7 +16,7 @@ public class SnakeGame {
 	public final static int yPixelMaxDimension = 501;
 	public static int xSquares ;    //How many squares in the grid?
 	public static int ySquares ;
-	public final static int squareSize = 50; // How many pixels the game grid squares are
+	public final static int squareSize = 25; // How many pixels the game grid squares are
 
 	protected static Snake snake ;
 	private static GameComponentManager componentManager;
@@ -32,7 +36,7 @@ public class SnakeGame {
 	private static int gameStage = BEFORE_GAME;  //use this to figure out what should be happening. 
 	//Other classes like Snake and DrawSnakeGamePanel will query this, and change its value
 
-	protected static long clockInterval = 250; //controls game speed
+	protected static long clockInterval = 200; //controls game speed
 	//Every time the clock ticks, the snake moves
 	//This is the time between clock ticks, in milliseconds
 	//1000 milliseconds = 1 second.
@@ -48,6 +52,9 @@ public class SnakeGame {
 		//Schedule a job for the event-dispatching thread:
 		//creating and showing this application's GUI.
 		SwingUtilities.invokeLater(new Runnable() {
+
+			settingsGUI settingsGUI = new settingsGUI();
+
 			public void run() {
 				initializeGame();
 				createAndShowGUI();
@@ -92,7 +99,9 @@ public class SnakeGame {
 		componentManager = new GameComponentManager();
 		snake = new Snake(xSquares, ySquares);
 		Kibble kibble = new Kibble();
-		Wall wall = new Wall();
+		do {
+			wall = new Wall();
+		} while (snake.isThisInSnake(wall.getSquare()));
 		score = new Score();
 
 		// Pass snake and kibble to the component manager to deal with them from now on

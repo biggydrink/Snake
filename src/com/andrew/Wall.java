@@ -1,11 +1,13 @@
 package com.andrew;
 
-import java.util.LinkedList;
 import java.util.Random;
 
 /**
- * Created by andre_000 on 4/9/2016.
+ * Walls are objects that snake can't go through. Similar to kibbles, except that the game ends if snake touches one.
  */
+
+// TODO make sure walls are not created on top of kibble or snake
+
 public class Wall {
 
     private int wallX;
@@ -23,7 +25,6 @@ public class Wall {
         wallY = rnd.nextInt(SnakeGame.ySquares);
 
         return new Square(wallX,wallY);
-
     }
 
     public int getWallX() {

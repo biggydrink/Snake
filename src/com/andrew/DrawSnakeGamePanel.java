@@ -19,6 +19,8 @@ public class DrawSnakeGamePanel extends JPanel {
 	private Score score;
 	private Wall wall;
 	private Colors colors = new Colors("Nokia");
+	//private Colors colors = new Colors("Nokia2");
+	//private Colors colors = new Colors("default");
 
 	DrawSnakeGamePanel(GameComponentManager components){
 		this.snake = components.getSnake();
