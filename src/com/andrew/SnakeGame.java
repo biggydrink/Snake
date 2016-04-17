@@ -16,30 +16,38 @@ public class SnakeGame {
 	public final static int yPixelMaxDimension = 501;
 	public static int xSquares ;    //How many squares in the grid?
 	public static int ySquares ;
-	public final static int squareSize = 25; // How many pixels the game grid squares are
+
 
 	protected static Snake snake ;
 	private static GameComponentManager componentManager;
 	protected static Score score;
-	protected static Wall wall;
+	protected static Life life;
 
-	protected static boolean wrap = true;
+	// settings from GUI
+	public static int squareSize = 25; // How many pixels the game grid squares are
+	protected static int wallCount = 3; // How many walls on the grid
+	protected static int wallSize = 1; // How big the walls are
+	protected static String colorChosen = "Nokia2"; // board color palette
+	protected static int startingLife = 5;
+	protected static boolean wrap = true; // if true then snake wraps around board
+	protected static int snakeGrowthRate = 1; // how many squares the snake grows with each kibble
+	protected static long clockInterval = 200; //controls game speed
+	//Every time the clock ticks, the snake moves
+	//This is the time between clock ticks, in milliseconds
+	//1000 milliseconds = 1 second.
+
 
 	static final int BEFORE_GAME = 1;
 	static final int DURING_GAME = 2;
 	static final int GAME_OVER = 3;
-	static final int GAME_WON = 4;   //The numerical values of these variables are not important. The important thing is to use the constants
+	static final int GAME_WON = 4;
+	//The numerical values of these variables are not important. The important thing is to use the constants
 	//instead of the values so you are clear what you are setting. Easy to forget what number is Game over vs. game won
 	//Using constant names instead makes it easier to keep it straight. Refer to these variables 
 	//using statements such as SnakeGame.GAME_OVER 
 
 	private static int gameStage = BEFORE_GAME;  //use this to figure out what should be happening. 
 	//Other classes like Snake and DrawSnakeGamePanel will query this, and change its value
-
-	protected static long clockInterval = 200; //controls game speed
-	//Every time the clock ticks, the snake moves
-	//This is the time between clock ticks, in milliseconds
-	//1000 milliseconds = 1 second.
 
 	static JFrame snakeFrame;
 	static DrawSnakeGamePanel snakePanel;
@@ -49,11 +57,25 @@ public class SnakeGame {
 
 
 	public static void main(String[] args) {
+
+		/*SettingsGUI gui = new SettingsGUI();
+
+		squareSize = gui.squareSize;
+		wrap = gui.wrapEnabled;
+		clockInterval = gui.gameSpeed;
+		wallCount = gui.wallCount;
+		wallSize = gui.wallSize;
+		lives = gui.lives;
+		colorChosen = gui.colorChosen;
+		snakeGrowthRate = gui.snakeGrowthRate;
+
+	*//*	while (!gui.ready) {
+
+		}*/
+
 		//Schedule a job for the event-dispatching thread:
 		//creating and showing this application's GUI.
 		SwingUtilities.invokeLater(new Runnable() {
-
-			settingsGUI settingsGUI = new settingsGUI();
 
 			public void run() {
 				initializeGame();
@@ -99,16 +121,23 @@ public class SnakeGame {
 		componentManager = new GameComponentManager();
 		snake = new Snake(xSquares, ySquares);
 		Kibble kibble = new Kibble();
-		do {
-			wall = new Wall();
-		} while (snake.isThisInSnake(wall.getSquare()));
+		Wall[] walls = new Wall[wallCount];
+		for (int i = 0; i < wallCount; ++i) {
+			do {
+				walls[i] = new Wall();
+			} while (snake.isThisInSnake(walls[i].getSquare()));
+		}
 		score = new Score();
+		life = new Life(startingLife);
 
 		// Pass snake and kibble to the component manager to deal with them from now on
 		componentManager.addSnake(snake);
 		componentManager.addKibble(kibble);
 		componentManager.addScore(score);
-		componentManager.addWall(wall);
+		componentManager.addWalls(walls);
+		componentManager.addLife(life);
+
+
 
 		//TODO if you have other components, add them here.
 
@@ -120,7 +149,12 @@ public class SnakeGame {
 		Timer timer = new Timer();
 		gameStage = DURING_GAME; // game has started
 		GameClock clockTick = new GameClock(componentManager, snakePanel);
-		componentManager.newGame(); // Restarts score, snake TODO see if this is unnecessary
+		if (componentManager.getLife().getLives() < startingLife && componentManager.getLife().getLives() != 0) {
+			componentManager.continueGame(); // Sets snake back to where it was 1 position previous
+		} else {
+			componentManager.newGame(); // Restarts score, snake
+		}
+
 		timer.scheduleAtFixedRate(clockTick, 0, clockInterval); // Sets up schedule for timer, using clockInterval
 	}
 

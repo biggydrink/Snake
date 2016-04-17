@@ -19,7 +19,6 @@ public class GameControls implements KeyListener{
 		// do something different depending on where you are in the game.
 		if (SnakeGame.getGameStage() == SnakeGame.GAME_OVER){
 			SnakeGame.newGame();
-			return;
 		}
 
 	}

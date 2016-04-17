@@ -17,16 +17,19 @@ public class DrawSnakeGamePanel extends JPanel {
 	private Snake snake;
 	private Kibble kibble;
 	private Score score;
-	private Wall wall;
-	private Colors colors = new Colors("Nokia");
+	private Wall[] walls;
+	private Life life;
+	//private Colors colors = new Colors("Nokia");
 	//private Colors colors = new Colors("Nokia2");
 	//private Colors colors = new Colors("default");
+	private Colors colors = new Colors(SnakeGame.colorChosen);
 
 	DrawSnakeGamePanel(GameComponentManager components){
 		this.snake = components.getSnake();
 		this.kibble = components.getKibble();
 		this.score = components.getScore();
-		this.wall = components.getWall();
+		this.walls = components.getWalls();
+		this.life = components.getLife();
 	}
 	
 	public Dimension getPreferredSize() {
@@ -80,11 +83,13 @@ public class DrawSnakeGamePanel extends JPanel {
 		String textScore = score.getStringScore();
 		String textHighScore = score.getStringHighScore();
 		String newHighScore = score.newHighScore();
+		String lives = life.getStringLife();
 		
 		g.drawString("SCORE = " + textScore, 150, 250);
 		
 		g.drawString("HIGH SCORE = " + textHighScore, 150, 300);
 		g.drawString(newHighScore, 150, 400);
+		g.drawString("Current Lives: " + lives,150,450);
 		
 		g.drawString("press a key to play again", 150, 350);
 		g.drawString("Press q to quit the game",150, 400);
@@ -95,7 +100,7 @@ public class DrawSnakeGamePanel extends JPanel {
 		displayGameGrid(g);
 		displaySnake(g);
 		displayKibble(g);
-		displayWall(g);
+		displayWalls(g);
 	}
 
 	private void displayGameGrid(Graphics g) {
@@ -134,15 +139,19 @@ public class DrawSnakeGamePanel extends JPanel {
 		
 	}
 
-	private void displayWall(Graphics g) {
+	private void displayWalls(Graphics g) {
 
 		// Draw the wall in wall Color
 		g.setColor(colors.wallColor);
 
-		int x = wall.getWallX() * SnakeGame.squareSize;
-		int y = wall.getWallY() * SnakeGame.squareSize;
+		for (Wall wall : walls) {
+			int x = wall.getWallX() * SnakeGame.squareSize;
+			int y = wall.getWallY() * SnakeGame.squareSize;
 
-		g.fillRect(x,y,SnakeGame.squareSize,SnakeGame.squareSize);
+			g.fillRect(x,y,SnakeGame.squareSize,SnakeGame.squareSize);
+		}
+
+
 	}
 
 

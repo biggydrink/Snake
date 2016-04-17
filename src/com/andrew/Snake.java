@@ -10,11 +10,12 @@ public class Snake {
 	final int[] DIRECTION_RIGHT = { 1,  0};  //Amount to move x and y of snake head to make new snake head
 
 	private LinkedList<Square> snakeSquares;  //List of snake squares or segments. Square class is simply an int x and y value.
+	protected LinkedList<Square> previousSnakeSquares; // Last movement snakeSquares
 
 	private int[] currentHeading;  //Direction snake is going in, not direction user is telling snake to go
 	private int[] lastHeading;    //Last confirmed movement of snake. See moveSnake method
 
-	private int growthIncrement = 2; //how many squares the snake grows after it eats a kibble
+	private int growthIncrement = SnakeGame.snakeGrowthRate; //how many squares the snake grows after it eats a kibble
 
 	private int growThisManySquares = 0;  //Snake grows 1 square at a time, one per clock tick. This tracks how many squares are left to add over a number of clock ticks.
 
@@ -63,6 +64,10 @@ public class Snake {
 
 	}
 
+	public void setSnakeSquares(LinkedList<Square> newSnakeSquares) {
+		snakeSquares = newSnakeSquares;
+	}
+
 	public void snakeUp(){
 		if (currentHeading == DIRECTION_UP || currentHeading == DIRECTION_DOWN) { return; }
 		currentHeading = DIRECTION_UP;
@@ -87,6 +92,7 @@ public class Snake {
 		//Must check that the direction snake is being sent in is not contrary to current heading
 		//So if current heading is down, and snake is being sent up, then should ignore.
 		//Without this code, if the snake is heading up, and the user presses left then down quickly, the snake will back into itself.
+
 		if (currentHeading == DIRECTION_DOWN && lastHeading == DIRECTION_UP) {
 			currentHeading = DIRECTION_UP; //keep going the same way
 		}
@@ -108,8 +114,6 @@ public class Snake {
 		int newHeadX = currentHead.x + currentHeading[0];
 		int newHeadY = currentHead.y + currentHeading[1];
 
-
-
 		if (SnakeGame.wrap) {
 			// Snake wraps around game board
 			if (newHeadX >= maxX) { newHeadX = 0; }
@@ -117,15 +121,12 @@ public class Snake {
 			if (newHeadY >= maxY) { newHeadY = 0; }
 			else if (newHeadY < 0) { newHeadY = maxY-1; }
 		} else {
-			//Does this make snake hit the wall? Game over.
+			//Does this make snake hit the edge of the board? Game over.
 			if (newHeadX >= maxX || newHeadX < 0 || newHeadY >= maxY || newHeadY < 0 ) {
 				SnakeGame.setGameStage(SnakeGame.GAME_OVER);
 				return;
 			}
 		}
-
-
-
 
 
 		//Square newHead = new Square(headX + currentHeading[0], headY + currentHeading[1]);

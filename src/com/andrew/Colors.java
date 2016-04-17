@@ -1,6 +1,7 @@
 package com.andrew;
 
 import java.awt.*;
+import java.util.LinkedList;
 
 /**
  * Created by andre_000 on 4/9/2016.
@@ -13,6 +14,8 @@ public class Colors {
     public Color kibbleColor;
     public Color wallColor;
     public Color gridColor;
+
+    public String[] colorList = {"Nokia","Nokia2","Developer"};
 
 
     public Colors(String colorFamily) {
@@ -32,10 +35,12 @@ public class Colors {
                 snakeHeadColor = new Color(5,4,9);
                 snakeBodyColor = new Color(5,4,9);
                 kibbleColor = new Color(1,1,0);
-                wallColor = new Color(10,10,10);
+                wallColor = new Color(200,200,200);
                 gridColor = new Color(119,121,100);
                 break;
             }
+            case "Developer":
+
             default: {
                 boardColor = Color.WHITE;
                 snakeHeadColor = Color.LIGHT_GRAY;
@@ -46,4 +51,6 @@ public class Colors {
             }
         }
     }
+
+    public String[] getColorList() { return colorList; }
 }

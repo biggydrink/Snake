@@ -31,6 +31,9 @@ public class GameClock extends TimerTask {
 			}
 			case SnakeGame.GAME_OVER: {
 				this.cancel();		//stop the Timer
+				// reduce lives by one
+				int currentLives = componentManager.getLife().getLives();
+				componentManager.getLife().setLives(--currentLives);
 				break;	
 			}
 			case SnakeGame.GAME_WON: {

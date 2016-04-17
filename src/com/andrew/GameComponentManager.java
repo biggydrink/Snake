@@ -8,7 +8,8 @@ public class GameComponentManager {
     private Kibble kibble;
     private Snake snake;
     private Score score;
-    private Wall wall;
+    private Wall[] walls;
+    private Life life;
 
     /** Called every clock tick. Tell components to interact/update,
      * manage interactions, update score etc.
@@ -18,12 +19,17 @@ public class GameComponentManager {
      */
     public void update() {
 
+
+        snake.previousSnakeSquares = snake.getSnakeSquares();
         snake.moveSnake();
 
 
+
         // Check if snake hit wall
-        if (snake.isThisInSnake(wall.getSquare())) {
-            SnakeGame.setGameStage(SnakeGame.GAME_OVER);
+        for (Wall wall : walls) {
+            if (snake.isThisInSnake(wall.getSquare())) {
+                SnakeGame.setGameStage(SnakeGame.GAME_OVER);
+            }
         }
         //Ask the snake if it is on top of the kibble
         if (snake.isThisInSnake(kibble.getSquare())) {
@@ -38,44 +44,51 @@ public class GameComponentManager {
 
             score.increaseScore();
 		}
+
+
+
     }
 
     public void newGame() {
+
         score.resetScore();
+        life.setLives(SnakeGame.startingLife);
         snake.createStartSnake(); //unnecessary?
+
+    }
+
+    public void continueGame() {
+        snake.setSnakeSquares(snake.previousSnakeSquares);
+
     }
 
 
     public void addKibble(Kibble kibble) {
         this.kibble = kibble;
     }
-
     public void addSnake(Snake snake) {
         this.snake = snake;
     }
-
     public void addScore(Score score) {
         this.score = score;
     }
-
-    public void addWall(Wall wall) {
-        this.wall = wall;
+    public void addWalls(Wall[] walls) {
+        this.walls = walls;
     }
+    public void addLife(Life life) { this.life = life; }
 
     public Score getScore() {
         return score;
     }
-
     public Kibble getKibble() {
         return kibble;
     }
-
     public Snake getSnake() {
         return snake;
     }
-
-    public Wall getWall() {
-        return wall;
+    public Wall[] getWalls() {
+        return walls;
     }
+    public Life getLife() { return life; }
 
 }
