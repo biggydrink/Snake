@@ -26,10 +26,9 @@ public class SnakeGame {
 	// settings from GUI
 	public static int squareSize = 25; // How many pixels the game grid squares are
 	protected static int wallCount = 3; // How many walls on the grid
-	protected static int wallSize = 1; // How big the walls are
 	protected static String colorChosen = "Nokia2"; // board color palette
 	protected static int startingLife = 5;
-	protected static boolean wrap = true; // if true then snake wraps around board
+	protected static boolean wrap = false; // if true then snake wraps around board
 	protected static int snakeGrowthRate = 1; // how many squares the snake grows with each kibble
 	protected static long clockInterval = 200; //controls game speed
 	//Every time the clock ticks, the snake moves
@@ -55,6 +54,7 @@ public class SnakeGame {
 	//http://docs.oracle.com/javase/tutorial/displayCode.html?code=http://docs.oracle.com/javase/tutorial/uiswing/examples/components/FrameDemoProject/src/components/FrameDemo.java
 	//http://docs.oracle.com/javase/tutorial/uiswing/painting/step2.html
 
+	public static SettingsGUI gui = new SettingsGUI();
 
 	public static void main(String[] args) {
 
@@ -85,7 +85,7 @@ public class SnakeGame {
 	}
 
 
-	private static void createAndShowGUI() {
+	protected static void createAndShowGUI() {
 		//Create and set up the window.
 		snakeFrame = new JFrame();
 		snakeFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); // application closes when window is closed
@@ -112,7 +112,7 @@ public class SnakeGame {
 	}
 
 	/** Sets up the basic game data, including the size of the game board, snake and kibble objects, and score. */
-	private static void initializeGame() {
+	protected static void initializeGame() {
 
 		//set up score, snake and first kibble
 		xSquares = xPixelMaxDimension / squareSize;
@@ -149,7 +149,7 @@ public class SnakeGame {
 		Timer timer = new Timer();
 		gameStage = DURING_GAME; // game has started
 		GameClock clockTick = new GameClock(componentManager, snakePanel);
-		if (componentManager.getLife().getLives() < startingLife && componentManager.getLife().getLives() != 0) {
+		if (componentManager.getLife().getLives() < startingLife && componentManager.getLife().getLives() >= 0) {
 			componentManager.continueGame(); // Sets snake back to where it was 1 position previous
 		} else {
 			componentManager.newGame(); // Restarts score, snake

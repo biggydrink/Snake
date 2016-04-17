@@ -40,7 +40,7 @@ public class GameComponentManager {
             Square kibbleLoc;
             do {
                 kibbleLoc = kibble.moveKibble();
-            } while (snake.isThisInSnake(kibbleLoc));
+            } while (snake.isThisInSnake(kibbleLoc) || isInAnyWalls(kibbleLoc));
 
             score.increaseScore();
 		}
@@ -48,6 +48,8 @@ public class GameComponentManager {
 
 
     }
+
+
 
     public void newGame() {
 
@@ -63,19 +65,28 @@ public class GameComponentManager {
     }
 
 
-    public void addKibble(Kibble kibble) {
+    public boolean isInAnyWalls(Square testSquare) {
+        for (Wall wall : walls) {
+            if (wall.isThisInWall(testSquare)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    protected void addKibble(Kibble kibble) {
         this.kibble = kibble;
     }
-    public void addSnake(Snake snake) {
+    protected void addSnake(Snake snake) {
         this.snake = snake;
     }
-    public void addScore(Score score) {
+    protected void addScore(Score score) {
         this.score = score;
     }
-    public void addWalls(Wall[] walls) {
+    protected void addWalls(Wall[] walls) {
         this.walls = walls;
     }
-    public void addLife(Life life) { this.life = life; }
+    protected void addLife(Life life) { this.life = life; }
 
     public Score getScore() {
         return score;

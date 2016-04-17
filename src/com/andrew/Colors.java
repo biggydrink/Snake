@@ -14,6 +14,7 @@ public class Colors {
     public Color kibbleColor;
     public Color wallColor;
     public Color gridColor;
+    public Color fontColor;
 
     public String[] colorList = {"Nokia","Nokia2","Developer"};
 
@@ -28,6 +29,7 @@ public class Colors {
                 kibbleColor = new Color(121,123,89);
                 wallColor = new Color(43,175,225);
                 gridColor = new Color(177,216,123);
+                fontColor = new Color(43,175,225);
                 break;
             }
             case "Nokia2": {
@@ -37,6 +39,7 @@ public class Colors {
                 kibbleColor = new Color(1,1,0);
                 wallColor = new Color(200,200,200);
                 gridColor = new Color(119,121,100);
+                fontColor = new Color(200,200,200);
                 break;
             }
             case "Developer":
@@ -48,6 +51,7 @@ public class Colors {
                 kibbleColor = Color.GREEN;
                 wallColor = Color.RED;
                 gridColor = Color.RED;
+                fontColor = Color.RED;
             }
         }
     }

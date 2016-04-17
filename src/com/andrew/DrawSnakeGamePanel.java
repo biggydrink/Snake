@@ -24,6 +24,13 @@ public class DrawSnakeGamePanel extends JPanel {
 	//private Colors colors = new Colors("default");
 	private Colors colors = new Colors(SnakeGame.colorChosen);
 
+	private int fontStartX = SnakeGame.xPixelMaxDimension/10;
+	private int fontStartY = SnakeGame.yPixelMaxDimension/8;
+	private String preferredFont = "SansSerif";
+	private int fontStyle = Font.BOLD;
+	private int fontSize = 30;
+
+
 	DrawSnakeGamePanel(GameComponentManager components){
 		this.snake = components.getSnake();
 		this.kibble = components.getKibble();
@@ -39,6 +46,7 @@ public class DrawSnakeGamePanel extends JPanel {
     public void paintComponent(Graphics g) {
 
         super.paintComponent(g);
+		g.setFont(new Font(preferredFont,fontStyle,fontSize));
 
         /* Where are we at in the game? 4 phases.. 
          * 1. Before game starts
@@ -71,28 +79,43 @@ public class DrawSnakeGamePanel extends JPanel {
 
 	private void displayGameWon(Graphics g) {
 		// TODO Replace this with something really special!
-		g.clearRect(100,100,350,350);
-		g.drawString("YOU WON SNAKE!!!", 150, 150);
+		fillEntireBoard(g);
+		g.drawString("YOU WON SNAKE!!!", fontStartX, fontStartY);
 		
 	}
 	private void displayGameOver(Graphics g) {
 
-		g.clearRect(100,100,350,350);
-		g.drawString("GAME OVER", 150, 150);
+		int textCount = 0;
+
+		g.setColor(colors.boardColor);
+		fillEntireBoard(g);
+
+		g.setColor(colors.fontColor);
+		g.drawString("GAME OVER", fontStartX, fontStartY+(fontSize*textCount++));
+		textCount++; // line break
 		
 		String textScore = score.getStringScore();
 		String textHighScore = score.getStringHighScore();
 		String newHighScore = score.newHighScore();
 		String lives = life.getStringLife();
 		
-		g.drawString("SCORE = " + textScore, 150, 250);
+		g.drawString("Score: " + textScore, fontStartX, fontStartY+(fontSize*textCount++));
 		
-		g.drawString("HIGH SCORE = " + textHighScore, 150, 300);
-		g.drawString(newHighScore, 150, 400);
-		g.drawString("Current Lives: " + lives,150,450);
-		
-		g.drawString("press a key to play again", 150, 350);
-		g.drawString("Press q to quit the game",150, 400);
+		g.drawString("High Score: " + textHighScore, fontStartX, fontStartY+(fontSize*textCount++));
+		g.drawString(newHighScore, fontStartX, fontStartY+(fontSize*textCount++));
+		if (Integer.parseInt(lives) >= 0) {
+			g.drawString("Lives left: " + lives,fontStartX,fontStartY+(fontSize*textCount++));
+			textCount++; // line break
+			g.drawString("Press any key to continue", fontStartX, fontStartY+(fontSize*textCount++));
+		} else {
+			g.drawString("No lives left!",fontStartX,fontStartY+(fontSize*textCount++));
+			textCount++; // line break
+			g.drawString("Press any key to play again", fontStartX, fontStartY+(fontSize*textCount++));
+		}
+
+		textCount++; // line break
+		g.drawString("Press q to quit",fontStartX, fontStartY+(fontSize*textCount++));
+		g.drawString("Press o for options",fontStartX, fontStartY+(fontSize*textCount++));
     			
 	}
 
@@ -110,10 +133,9 @@ public class DrawSnakeGamePanel extends JPanel {
 		int squareSize = SnakeGame.squareSize;
 
 		g.setColor(colors.boardColor);
-		g.fillRect(0, 0, maxX, maxY);
+		fillEntireBoard(g);
 
 		g.setColor(colors.gridColor);
-
 
 		//Draw grid - horizontal lines
 		for (int y=0; y <= maxY ; y+= squareSize){			
@@ -175,8 +197,23 @@ public class DrawSnakeGamePanel extends JPanel {
 
 
 	private void displayInstructions(Graphics g) {
-        g.drawString("Press any key to begin!",100,200);		
-        g.drawString("Press q to quit the game",100,300);		
+		int textCount = 0;
+
+		g.setColor(colors.boardColor);
+		fillEntireBoard(g);
+
+		g.setColor(colors.fontColor);
+        g.drawString("Press any key to begin!",fontStartX,fontStartY+(fontSize*textCount++));
+        g.drawString("Press q to quit the game",fontStartX,fontStartY+(fontSize*textCount++));
+		g.drawString("Press o to see options.",fontStartX,fontStartY+(fontSize*textCount++));
     	}
+
+	private void fillEntireBoard(Graphics g) {
+		g.fillRect(0,0,SnakeGame.xPixelMaxDimension,SnakeGame.yPixelMaxDimension);
+	}
+
+	private void clearEntireBoard(Graphics g) {
+		g.clearRect(0,0,SnakeGame.xPixelMaxDimension,SnakeGame.yPixelMaxDimension);
+	}
 }
 

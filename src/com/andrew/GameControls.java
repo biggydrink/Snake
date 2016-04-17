@@ -35,8 +35,13 @@ public class GameControls implements KeyListener{
 		//keyTyped events are for user typing letters on the keyboard, anything that makes a character display on the screen
 		char keyPressed = ev.getKeyChar();
 		char q = 'q';
+		char o = 'o';
 		if( keyPressed == q){
 			System.exit(0);    //quit if user presses the q key.
+		}
+		if (keyPressed == o) {
+			SnakeGame.setGameStage(SnakeGame.BEFORE_GAME);
+			SnakeGame.gui.setVisible(true);
 		}
 	}
 

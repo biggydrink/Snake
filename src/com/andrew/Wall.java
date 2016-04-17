@@ -27,6 +27,14 @@ public class Wall {
         return new Square(wallX,wallY);
     }
 
+    public boolean isThisInWall(Square testSquare) {
+        if (this.wallX == testSquare.x && this.wallY == testSquare.y) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public int getWallX() {
         return wallX;
     }
