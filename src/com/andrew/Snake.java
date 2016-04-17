@@ -109,8 +109,6 @@ public class Snake {
 
 		//Make new head, and current heading, to move snake
 		Square currentHead = snakeSquares.getFirst();
-		int headX = currentHead.x;
-		int headY = currentHead.y;
 		int newHeadX = currentHead.x + currentHeading[0];
 		int newHeadY = currentHead.y + currentHeading[1];
 

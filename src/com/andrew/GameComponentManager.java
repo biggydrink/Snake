@@ -19,7 +19,6 @@ public class GameComponentManager {
      */
     public void update() {
 
-
         snake.previousSnakeSquares = snake.getSnakeSquares();
         snake.moveSnake();
 
@@ -55,7 +54,7 @@ public class GameComponentManager {
 
         score.resetScore();
         life.setLives(SnakeGame.startingLife);
-        snake.createStartSnake(); //unnecessary?
+        //snake.createStartSnake(); //unnecessary?
 
     }
 

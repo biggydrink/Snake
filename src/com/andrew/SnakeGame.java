@@ -22,6 +22,8 @@ public class SnakeGame {
 	private static GameComponentManager componentManager;
 	protected static Score score;
 	protected static Life life;
+	protected static Timer timer;
+	protected static GameClock clockTick;
 
 	// settings from GUI
 	public static int squareSize = 25; // How many pixels the game grid squares are
@@ -78,6 +80,7 @@ public class SnakeGame {
 		SwingUtilities.invokeLater(new Runnable() {
 
 			public void run() {
+				createGameStaticObjects();
 				initializeGame();
 				createAndShowGUI();
 			}
@@ -111,27 +114,34 @@ public class SnakeGame {
 		snakeFrame.setVisible(true);
 	}
 
-	/** Sets up the basic game data, including the size of the game board, snake and kibble objects, and score. */
-	protected static void initializeGame() {
-
+	/** Sets up snake and component manager separately from the rest of the game data, to avoid any chance of creating them twice */
+	protected static void createGameStaticObjects() {
 		//set up score, snake and first kibble
 		xSquares = xPixelMaxDimension / squareSize;
 		ySquares = yPixelMaxDimension / squareSize;
 
 		componentManager = new GameComponentManager();
+
 		snake = new Snake(xSquares, ySquares);
-		Kibble kibble = new Kibble();
+		componentManager.addSnake(snake);
+
+
+	}
+
+	/** Sets up the basic game data, including the size of the game board, snake and kibble objects, and score. */
+	protected static void initializeGame() {
+
 		Wall[] walls = new Wall[wallCount];
 		for (int i = 0; i < wallCount; ++i) {
 			do {
 				walls[i] = new Wall();
 			} while (snake.isThisInSnake(walls[i].getSquare()));
 		}
+		Kibble kibble = new Kibble();
 		score = new Score();
 		life = new Life(startingLife);
 
 		// Pass snake and kibble to the component manager to deal with them from now on
-		componentManager.addSnake(snake);
 		componentManager.addKibble(kibble);
 		componentManager.addScore(score);
 		componentManager.addWalls(walls);
@@ -146,16 +156,17 @@ public class SnakeGame {
 
 	/** Runs when a new game starts. This is distinct from when the program starts */
 	protected static void newGame() {
-		Timer timer = new Timer();
+
+		timer = new Timer();
 		gameStage = DURING_GAME; // game has started
-		GameClock clockTick = new GameClock(componentManager, snakePanel);
+		clockTick = new GameClock(componentManager, snakePanel);
 		if (componentManager.getLife().getLives() < startingLife && componentManager.getLife().getLives() >= 0) {
 			componentManager.continueGame(); // Sets snake back to where it was 1 position previous
 		} else {
 			componentManager.newGame(); // Restarts score, snake
 		}
-
 		timer.scheduleAtFixedRate(clockTick, 0, clockInterval); // Sets up schedule for timer, using clockInterval
+
 	}
 
 

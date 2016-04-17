@@ -49,8 +49,6 @@ public class SettingsGUI extends JFrame {
 
     private JPanel rootPanel;
 
-    public boolean ready;
-
     private JLabel adjustSquareSizeLabel;
     private JComboBox<String> adjustSquareSizeComboBox;
     public int squareSize = 50;
@@ -58,10 +56,6 @@ public class SettingsGUI extends JFrame {
     private JLabel adjustGameSpeedLabel;
     private JComboBox<String> adjustGameSpeedComboBox;
     public int gameSpeed;
-
-    private JLabel adjustWallSizeLabel;
-    private JComboBox<String> adjustWallSizeComboBox;
-    public int wallSize;
 
     private JLabel adjustWallCountLabel;
     private JComboBox<String> adjustWallCountComboBox;
@@ -106,7 +100,7 @@ public class SettingsGUI extends JFrame {
 
 
         pack();
-        setVisible(true);
+        setVisible(false); // sets visible to true when user presses o
 
     }
 
@@ -153,59 +147,27 @@ public class SettingsGUI extends JFrame {
             adjustSquareSizeComboBox.addItem(squareSizeSetting);
         }
 
-        /*adjustSquareSizeComboBox.addItem("Large (Easy)");
-        adjustSquareSizeComboBox.addItem("Medium (Average)");
-        adjustSquareSizeComboBox.addItem("Small (Hard)");
-        adjustSquareSizeComboBox.addItem("Tiny (Crazy)");*/
-
+        // Game speed
         for (String gameSpeedSetting : gameSpeedMap.keySet()) {
             adjustGameSpeedComboBox.addItem(gameSpeedSetting);
         }
 
-        /*adjustGameSpeedComboBox.addItem("Medium (Average)");
-        adjustGameSpeedComboBox.addItem("Slow (Easy)");
-        adjustGameSpeedComboBox.addItem("Fast (Hard)");
-        adjustGameSpeedComboBox.addItem("Turbo (Crazy)");*/
-
-        for (String wallSizeSetting : wallSizeMap.keySet()) {
-            adjustWallSizeComboBox.addItem(wallSizeSetting);
-        }
-
-        /*adjustWallSizeComboBox.addItem("0 (Easy)");
-        adjustWallSizeComboBox.addItem("1 (Average)");
-        adjustWallSizeComboBox.addItem("2 (Hard)");
-        adjustWallSizeComboBox.addItem("3 (Crazy)");*/
-
+        // Wall count
         for (String wallCountSetting : wallCountMap.keySet()) {
             adjustWallCountComboBox.addItem(wallCountSetting);
         }
 
-        /*adjustWallCountComboBox.addItem("0 (Easy)");
-        adjustWallCountComboBox.addItem("1 (Average)");
-        adjustWallCountComboBox.addItem("2 (Hard)");
-        adjustWallCountComboBox.addItem("3 (Crazy)");*/
-
-
+        // Snake growth
         for (String snakeGrowthSetting : snakeGrowthMap.keySet()) {
             adjustSnakeGrowthRateComboBox.addItem(snakeGrowthSetting);
         }
 
-        /*adjustSnakeGrowthRateComboBox.addItem("4 (Easy)");
-        adjustSnakeGrowthRateComboBox.addItem("3 (Average)");
-        adjustSnakeGrowthRateComboBox.addItem("2 (Hard)");
-        adjustSnakeGrowthRateComboBox.addItem("1 (Crazy)");*/
-
+        // Lives
         for (String livesCountSetting : livesCountMap.keySet()) {
             adjustLivesCountComboBox.addItem(livesCountSetting);
         }
-        /*
-        adjustLivesCountComboBox.addItem("10 (Easy)");
-        adjustLivesCountComboBox.addItem("6 (Average)");
-        adjustLivesCountComboBox.addItem("2 (Hard)");
-        adjustLivesCountComboBox.addItem("0 (Crazy)");*/
 
-        //wrapCheckBox;
-
+        // Colors
         for (String color : colors.colorList) {
             adjustColorSchemeComboBox.addItem(color);
         }
@@ -220,7 +182,10 @@ public class SettingsGUI extends JFrame {
         implementSettingsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 implementSettings();
+                SnakeGame.initializeGame();
+                SnakeGame.createAndShowGUI();
             }
         });
 
@@ -234,20 +199,15 @@ public class SettingsGUI extends JFrame {
         // push all selected settings
         // should make sure settings are pushed, OR give default settings to all combo boxes
 
+        SnakeGame.squareSize = squareSizeMap.get(adjustSquareSizeComboBox.getSelectedItem());
+        SnakeGame.clockInterval = gameSpeedMap.get(adjustGameSpeedComboBox.getSelectedItem());
+        SnakeGame.wallCount = wallCountMap.get(adjustWallCountComboBox.getSelectedItem());
+        SnakeGame.snakeGrowthRate = snakeGrowthMap.get(adjustSnakeGrowthRateComboBox.getSelectedItem());
+        SnakeGame.startingLife = livesCountMap.get(adjustLivesCountComboBox.getSelectedItem());
+        SnakeGame.colorChosen = (String)adjustColorSchemeComboBox.getSelectedItem();
+        SnakeGame.wrap = wrapCheckBox.isSelected();
 
-        SnakeGame.
-
-        squareSize = squareSizeMap.get(adjustSquareSizeComboBox.getSelectedItem());
-        gameSpeed = gameSpeedMap.get(adjustGameSpeedComboBox.getSelectedItem());
-        wallSize = wallSizeMap.get(adjustWallSizeComboBox.getSelectedItem());
-        wallCount = wallCountMap.get(adjustWallCountComboBox.getSelectedItem());
-        snakeGrowthRate = snakeGrowthMap.get(adjustSnakeGrowthRateComboBox.getSelectedItem());
-        lives = livesCountMap.get(adjustLivesCountComboBox.getSelectedItem());
-        colorChosen = (String)adjustColorSchemeComboBox.getSelectedItem();
-        wrapEnabled = wrapCheckBox.isSelected();
-
-        ready = true;
-
+        this.setVisible(false); // back to invisible after implementing settings, made visible again by pressing o (see game controls)
     }
 
 
