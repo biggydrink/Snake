@@ -1,10 +1,9 @@
 package com.andrew;
 
 import java.awt.*;
-import java.util.LinkedList;
 
 /**
- * Created by andre_000 on 4/9/2016.
+ * Contains a set of related colors to be used in Snake.
  */
 public class Colors {
 

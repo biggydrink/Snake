@@ -6,9 +6,13 @@ import java.util.LinkedList;
 import javax.swing.JPanel;
 
 /** This class responsible for displaying the graphics, so the snake, grid, kibble, instruction text and high score
- * 
- * @author Clara
  *
+ * I use "fontStartY+(fontSize*textCount++)" as the standard Y position for string text. This is essentially
+ * one expression that will always make sure that the next time text is written, it will be at least one
+ * full font size below the last.
+ *
+ * @author Clara
+ * modified by Andrew
  */
 public class DrawSnakeGamePanel extends JPanel {
 	

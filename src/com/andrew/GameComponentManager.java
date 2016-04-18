@@ -2,6 +2,7 @@ package com.andrew;
 
 /**
  * Created by Clara. Manages game components such as the Snake, Kibble... and their interactions.
+ * Modified by Andrew
  */
 public class GameComponentManager {
 
@@ -66,7 +67,6 @@ public class GameComponentManager {
 
     public void continueGame() {
         snake.setSnakeSquares(snake.previousSnakeSquares); // Sets snake to where it was one tick previously
-
     }
 
 

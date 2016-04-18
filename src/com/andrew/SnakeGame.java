@@ -4,10 +4,9 @@ import java.util.Timer;
 
 import javax.swing.*;
 
-
-
-
-
+/** Snake, based on the old Nokia cell phone game. Written by Clara and modified by Andrew, originally for Java
+ * class at Minneapolis Community & Technical College.
+ */
 
 public class SnakeGame {
 
@@ -129,10 +128,6 @@ public class SnakeGame {
 		componentManager.addScore(score);
 		componentManager.addWalls(walls);
 		componentManager.addLife(life);
-
-
-
-		//TODO if you have other components, add them here.
 	}
 
 	/** Runs when a new game starts. This is distinct from when the program starts */
@@ -143,14 +138,12 @@ public class SnakeGame {
 		timer.scheduleAtFixedRate(clockTick, 0, clockInterval); // Sets up schedule for timer, using clockInterval
 		gameStage = DURING_GAME; // game has started
 
+		// if the player has lives left, let them continue from where they were
 		if (componentManager.getLife().getLives() < startingLife && componentManager.getLife().getLives() >= 0) {
 			componentManager.continueGame(); // Sets snake back to where it was 1 position previous
 		} else {
 			componentManager.newGame(); // Restarts score, snake
 		}
-
-
-
 	}
 
 
