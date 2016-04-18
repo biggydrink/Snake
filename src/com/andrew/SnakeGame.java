@@ -18,6 +18,8 @@ public class SnakeGame {
 	public static int ySquares ;
 
 
+	//FINDBUG - Package Protected Start -
+	//The fields below should be package protected. But I'm not sure exactly what that means, so leaving this alone for now.
 	protected static Snake snake ;
 	protected static GameComponentManager componentManager;
 	protected static Score score;
@@ -37,6 +39,7 @@ public class SnakeGame {
 	//This is the time between clock ticks, in milliseconds
 	//1000 milliseconds = 1 second.
 
+	//FINDBUG - Package Protected End -
 
 	static final int BEFORE_GAME = 1;
 	static final int DURING_GAME = 2;
@@ -56,7 +59,8 @@ public class SnakeGame {
 	//http://docs.oracle.com/javase/tutorial/displayCode.html?code=http://docs.oracle.com/javase/tutorial/uiswing/examples/components/FrameDemoProject/src/components/FrameDemo.java
 	//http://docs.oracle.com/javase/tutorial/uiswing/painting/step2.html
 
-	public static SettingsGUI gui = new SettingsGUI();
+	public static final SettingsGUI gui = new SettingsGUI();
+	//FINDBUGS - malicious code vulnerability, SnakeGame.gui was not final and should be
 
 	public static void main(String[] args) {
 
@@ -70,7 +74,6 @@ public class SnakeGame {
 			}
 		});
 	}
-
 
 	protected static void createAndShowGUI() {
 		//Create and set up the window.

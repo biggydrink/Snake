@@ -102,9 +102,7 @@ public class GameComponentManager {
     public Snake getSnake() {
         return snake;
     }
-    public Wall[] getWalls() {
-        return walls;
-    }
+    public Wall[] getWalls() { return walls; } //FINDBUG - "May expose internal representation"
     public Life getLife() { return life; }
 
 }

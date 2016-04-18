@@ -19,10 +19,7 @@ public class Kibble {
 	private boolean heart;
 	
 	public Kibble(){
-
 		moveKibble();
-
-
 	}
 	
 	protected Square moveKibble(){

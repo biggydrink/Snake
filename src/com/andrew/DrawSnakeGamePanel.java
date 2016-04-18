@@ -19,9 +19,6 @@ public class DrawSnakeGamePanel extends JPanel {
 	private Score score;
 	private Wall[] walls;
 	private Life life;
-	//private Colors colors = new Colors("Nokia");
-	//private Colors colors = new Colors("Nokia2");
-	//private Colors colors = new Colors("default");
 	private Colors colors = new Colors(SnakeGame.colorChosen);
 
 	private int fontStartX = SnakeGame.xPixelMaxDimension/10;
@@ -87,10 +84,10 @@ public class DrawSnakeGamePanel extends JPanel {
 
 		int textCount = 0;
 
-		g.setColor(colors.boardColor);
+		g.setColor(colors.getBoardColor());
 		fillEntireBoard(g);
 
-		g.setColor(colors.fontColor);
+		g.setColor(colors.getFontColor());
 		g.drawString("GAME OVER", fontStartX, fontStartY+(fontSize*textCount++));
 		textCount++; // line break
 		
@@ -132,10 +129,10 @@ public class DrawSnakeGamePanel extends JPanel {
 		int maxY= SnakeGame.yPixelMaxDimension;
 		int squareSize = SnakeGame.squareSize;
 
-		g.setColor(colors.boardColor);
+		g.setColor(colors.getBoardColor());
 		fillEntireBoard(g);
 
-		g.setColor(colors.gridColor);
+		g.setColor(colors.getGridColor());
 
 		//Draw grid - horizontal lines
 		for (int y=0; y <= maxY ; y+= squareSize){			
@@ -155,7 +152,7 @@ public class DrawSnakeGamePanel extends JPanel {
 		if (kibble.isHeart()) {
 			g.setColor(Color.RED);
 		} else {
-			g.setColor(colors.kibbleColor);
+			g.setColor(colors.getKibbleColor());
 		}
 
 
@@ -169,7 +166,7 @@ public class DrawSnakeGamePanel extends JPanel {
 	private void displayWalls(Graphics g) {
 
 		// Draw the wall in wall Color
-		g.setColor(colors.wallColor);
+		g.setColor(colors.getWallColor());
 
 		for (Wall wall : walls) {
 			int x = wall.getWallX() * SnakeGame.squareSize;
@@ -189,12 +186,12 @@ public class DrawSnakeGamePanel extends JPanel {
 		LinkedList<Square> coordinates = snake.getSnakeSquares();
 		
 		// Draw head in head color
-		g.setColor(colors.snakeHeadColor);
+		g.setColor(colors.getSnakeHeadColor());
 		Square head = coordinates.pop();
 		g.fillRect(head.x * size, head.y * size, size, size);
 		
 		// Draw body in body color
-		g.setColor(colors.snakeBodyColor);
+		g.setColor(colors.getSnakeBodyColor());
 		for (Square s : coordinates) {
 			g.fillRect(s.x * size, s.y * size , size, size);
 		}
@@ -204,10 +201,10 @@ public class DrawSnakeGamePanel extends JPanel {
 	private void displayInstructions(Graphics g) {
 		int textCount = 0;
 
-		g.setColor(colors.boardColor);
+		g.setColor(colors.getBoardColor());
 		fillEntireBoard(g);
 
-		g.setColor(colors.fontColor);
+		g.setColor(colors.getFontColor());
         g.drawString("Press any key to begin!",fontStartX,fontStartY+(fontSize*textCount++));
         g.drawString("Press q to quit the game",fontStartX,fontStartY+(fontSize*textCount++));
 		g.drawString("Press o to see options.",fontStartX,fontStartY+(fontSize*textCount++));

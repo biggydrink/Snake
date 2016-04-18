@@ -8,15 +8,38 @@ import java.util.LinkedList;
  */
 public class Colors {
 
-    public Color boardColor;
-    public Color snakeHeadColor;
-    public Color snakeBodyColor;
-    public Color kibbleColor;
-    public Color wallColor;
-    public Color gridColor;
-    public Color fontColor;
+    private Color boardColor;
+    private Color snakeHeadColor;
+    private Color snakeBodyColor;
+    private Color kibbleColor;
 
-    public String[] colorList = {"Nokia","Nokia2","Ocean","Mars","Developer"};
+    public Color getBoardColor() {
+        return boardColor;
+    }
+    public Color getSnakeHeadColor() {
+        return snakeHeadColor;
+    }
+    public Color getSnakeBodyColor() {
+        return snakeBodyColor;
+    }
+    public Color getKibbleColor() {
+        return kibbleColor;
+    }
+    public Color getWallColor() {
+        return wallColor;
+    }
+    public Color getGridColor() {
+        return gridColor;
+    }
+    public Color getFontColor() {
+        return fontColor;
+    }
+
+    private Color wallColor;
+    private Color gridColor;
+    private Color fontColor;
+
+    private String[] colorList = {"Nokia","Nokia2","Ocean","Mars","Developer"};
 
 
     public Colors(String colorFamily) {
@@ -76,5 +99,7 @@ public class Colors {
         }
     }
 
-    public String[] getColorList() { return colorList; }
+    protected String[] getColorList() { return colorList; }
+    //FINDBUG - May expose internal representation by returning Colors.colorList. Made this protected and other
+    // variables private.
 }
