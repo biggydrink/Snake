@@ -152,7 +152,12 @@ public class DrawSnakeGamePanel extends JPanel {
 	private void displayKibble(Graphics g) {
 
 		//Draw the kibble in kibble Color
-		g.setColor(colors.kibbleColor);
+		if (kibble.isHeart()) {
+			g.setColor(Color.RED);
+		} else {
+			g.setColor(colors.kibbleColor);
+		}
+
 
 		int x = kibble.getKibbleX() * SnakeGame.squareSize;
 		int y = kibble.getKibbleY() * SnakeGame.squareSize;

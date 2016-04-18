@@ -32,34 +32,40 @@ public class GameComponentManager {
         }
         //Ask the snake if it is on top of the kibble
         if (snake.isThisInSnake(kibble.getSquare())) {
-			//If so, tell the snake that it ate the kibble
-			snake.youAteKibble();
+
+            if (kibble.isHeart()) {
+                int currentLives = life.getLives();
+                life.setLives(++currentLives);
+                kibble.setHeart(false);
+            } else {
+                //If so, tell the snake that it ate the kibble
+                snake.youAteKibble();
+            }
             //And, update the kibble - move it to a new square. Got to check to make sure
             //that the new square is not inside the snake.
             Square kibbleLoc;
             do {
                 kibbleLoc = kibble.moveKibble();
+                if (snake.getSnakeSquares().size() + 1 == (SnakeGame.xPixelMaxDimension * SnakeGame.yPixelMaxDimension)) {
+                    break;
+                }
             } while (snake.isThisInSnake(kibbleLoc) || isInAnyWalls(kibbleLoc));
 
             score.increaseScore();
 		}
 
-
-
     }
-
-
 
     public void newGame() {
 
         score.resetScore();
         life.setLives(SnakeGame.startingLife);
-        //snake.createStartSnake(); //unnecessary?
+        snake.createStartSnake();
 
     }
 
     public void continueGame() {
-        snake.setSnakeSquares(snake.previousSnakeSquares);
+        snake.setSnakeSquares(snake.previousSnakeSquares); // Sets snake to where it was one tick previously
 
     }
 

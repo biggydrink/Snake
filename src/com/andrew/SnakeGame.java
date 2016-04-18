@@ -19,13 +19,13 @@ public class SnakeGame {
 
 
 	protected static Snake snake ;
-	private static GameComponentManager componentManager;
+	protected static GameComponentManager componentManager;
 	protected static Score score;
 	protected static Life life;
 	protected static Timer timer;
 	protected static GameClock clockTick;
 
-	// settings from GUI
+	// Default settings, the below are all changeable in SettingsGUI
 	public static int squareSize = 25; // How many pixels the game grid squares are
 	protected static int wallCount = 3; // How many walls on the grid
 	protected static String colorChosen = "Nokia2"; // board color palette
@@ -60,27 +60,11 @@ public class SnakeGame {
 
 	public static void main(String[] args) {
 
-		/*SettingsGUI gui = new SettingsGUI();
-
-		squareSize = gui.squareSize;
-		wrap = gui.wrapEnabled;
-		clockInterval = gui.gameSpeed;
-		wallCount = gui.wallCount;
-		wallSize = gui.wallSize;
-		lives = gui.lives;
-		colorChosen = gui.colorChosen;
-		snakeGrowthRate = gui.snakeGrowthRate;
-
-	*//*	while (!gui.ready) {
-
-		}*/
-
 		//Schedule a job for the event-dispatching thread:
 		//creating and showing this application's GUI.
 		SwingUtilities.invokeLater(new Runnable() {
 
 			public void run() {
-				createGameStaticObjects();
 				initializeGame();
 				createAndShowGUI();
 			}
@@ -90,6 +74,7 @@ public class SnakeGame {
 
 	protected static void createAndShowGUI() {
 		//Create and set up the window.
+
 		snakeFrame = new JFrame();
 		snakeFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); // application closes when window is closed
 
@@ -114,8 +99,9 @@ public class SnakeGame {
 		snakeFrame.setVisible(true);
 	}
 
-	/** Sets up snake and component manager separately from the rest of the game data, to avoid any chance of creating them twice */
-	protected static void createGameStaticObjects() {
+	/** Sets up the basic game data, including the size of the game board, snake and kibble objects, and score. */
+	protected static void initializeGame() {
+
 		//set up score, snake and first kibble
 		xSquares = xPixelMaxDimension / squareSize;
 		ySquares = yPixelMaxDimension / squareSize;
@@ -124,12 +110,6 @@ public class SnakeGame {
 
 		snake = new Snake(xSquares, ySquares);
 		componentManager.addSnake(snake);
-
-
-	}
-
-	/** Sets up the basic game data, including the size of the game board, snake and kibble objects, and score. */
-	protected static void initializeGame() {
 
 		Wall[] walls = new Wall[wallCount];
 		for (int i = 0; i < wallCount; ++i) {
@@ -150,22 +130,23 @@ public class SnakeGame {
 
 
 		//TODO if you have other components, add them here.
-
-		gameStage = BEFORE_GAME;
 	}
 
 	/** Runs when a new game starts. This is distinct from when the program starts */
 	protected static void newGame() {
 
 		timer = new Timer();
-		gameStage = DURING_GAME; // game has started
 		clockTick = new GameClock(componentManager, snakePanel);
+		timer.scheduleAtFixedRate(clockTick, 0, clockInterval); // Sets up schedule for timer, using clockInterval
+		gameStage = DURING_GAME; // game has started
+
 		if (componentManager.getLife().getLives() < startingLife && componentManager.getLife().getLives() >= 0) {
 			componentManager.continueGame(); // Sets snake back to where it was 1 position previous
 		} else {
 			componentManager.newGame(); // Restarts score, snake
 		}
-		timer.scheduleAtFixedRate(clockTick, 0, clockInterval); // Sets up schedule for timer, using clockInterval
+
+
 
 	}
 

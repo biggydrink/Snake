@@ -15,17 +15,27 @@ public class Kibble {
 	
 	private int kibbleX; //This is the square number (not pixel)
 	private int kibbleY;  //This is the square number (not pixel)
+	private static Random rnd = new Random();
+	private boolean heart;
 	
 	public Kibble(){
 
 		moveKibble();
+
+
 	}
 	
 	protected Square moveKibble(){
-		
-		Random rng = new Random();
-		kibbleX = rng.nextInt(SnakeGame.xSquares);
-		kibbleY = rng.nextInt(SnakeGame.ySquares);
+
+		// See if kibble becomes a heart
+		int rand = rnd.nextInt(20);
+		if (rand == 1) {
+			heart = true;
+		}
+
+		// Place kibble
+		kibbleX = rnd.nextInt(SnakeGame.xSquares);
+		kibbleY = rnd.nextInt(SnakeGame.ySquares);
 		return new Square(kibbleX, kibbleY);
 		
 	}
@@ -41,4 +51,7 @@ public class Kibble {
 	public Square getSquare() {
 		return new Square(kibbleX, kibbleY);
 	}
+
+	public boolean isHeart() { return heart; }
+	public void setHeart(boolean newHeart) { heart = newHeart; }
 }
