@@ -41,6 +41,7 @@ public class GameControls implements KeyListener{
 		if( keyPressed == quitKey){
 			System.exit(0);    //quit if user presses the q key.
 		} else if (keyPressed == optionsKey) {
+			//Idea for using o to bring up the options screen inspired by github user amdudda's version of Snake: https://github.com/amdudda/java_project_Snake
 			SnakeGame.setGameStage(SnakeGame.BEFORE_GAME);
 			SnakeGame.gui.setVisible(true);
 		}

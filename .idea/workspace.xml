@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d960ab6a-57ba-4965-840d-c1a783f88d0a" name="Default" comment="">
+    <list default="true" id="d960ab6a-57ba-4965-840d-c1a783f88d0a" name="Default" comment="Readme updated">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/andrew/settingsGUI.java" afterPath="$PROJECT_DIR$/src/com/andrew/settingsGUI.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/andrew/GameControls.java" afterPath="$PROJECT_DIR$/src/com/andrew/GameControls.java" />
     </list>
     <ignored path="SNAKE-ORIGINAL.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -89,8 +88,8 @@
       <file leaf-file-name="GameControls.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/andrew/GameControls.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3327014">
-              <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
+            <state vertical-scroll-proportion="0.692891">
+              <caret line="43" column="45" selection-start-line="43" selection-start-column="45" selection-end-line="43" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -177,13 +176,13 @@
         <option value="$PROJECT_DIR$/src/com/andrew/SettingsGUI.form" />
         <option value="$PROJECT_DIR$/src/com/andrew/GameClock.java" />
         <option value="$PROJECT_DIR$/src/com/andrew/Snake.java" />
-        <option value="$PROJECT_DIR$/src/com/andrew/GameControls.java" />
         <option value="$PROJECT_DIR$/src/com/andrew/SettingsGUI.java" />
         <option value="$PROJECT_DIR$/src/com/andrew/DrawSnakeGamePanel.java" />
         <option value="$PROJECT_DIR$/src/com/andrew/Colors.java" />
         <option value="$PROJECT_DIR$/src/com/andrew/SnakeGame.java" />
         <option value="$PROJECT_DIR$/src/com/andrew/GameComponentManager.java" />
         <option value="$PROJECT_DIR$/src/com/andrew/Kibble.java" />
+        <option value="$PROJECT_DIR$/src/com/andrew/GameControls.java" />
       </list>
     </option>
   </component>
@@ -786,7 +785,7 @@
       <workItem from="1460856121035" duration="1037000" />
       <workItem from="1460857890011" duration="25402000" />
       <workItem from="1460914650535" duration="2401000" />
-      <workItem from="1460924004921" duration="17879000" />
+      <workItem from="1460924004921" duration="18190000" />
     </task>
     <task id="LOCAL-00001" summary="GameComponentManager class to manage Snake, Kibble, other game play objects">
       <created>1458757336662</created>
@@ -884,11 +883,17 @@
       <option name="project" value="LOCAL" />
       <updated>1460950885062</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Readme updated">
+      <created>1460951416678</created>
+      <option name="number" value="00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1460951416679</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94295000" />
+    <option name="totallyTimeSpent" value="94606000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="0" width="3214" height="1741" extended-state="0" />
@@ -979,7 +984,8 @@
     <MESSAGE value="Hearts&#10;Added a 1/20 chance that a Kibble will turn red and become a &quot;Heart&quot;, which gives the player one more life instead of making the snake larger.&#10;Reverted the changes made earlier to static object initializations" />
     <MESSAGE value="FindBugs plugin&#10;Ran FINDBUGS plugin and fixed what issues I could" />
     <MESSAGE value="Comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="Comments" />
+    <MESSAGE value="Readme updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="Readme updated" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1462,8 +1468,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/andrew/GameControls.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3327014">
-          <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
+        <state vertical-scroll-proportion="0.692891">
+          <caret line="43" column="45" selection-start-line="43" selection-start-column="45" selection-end-line="43" selection-end-column="45" />
           <folding />
         </state>
       </provider>
