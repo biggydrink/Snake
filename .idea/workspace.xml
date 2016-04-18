@@ -3,12 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d960ab6a-57ba-4965-840d-c1a783f88d0a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/andrew/Colors.java" afterPath="$PROJECT_DIR$/src/com/andrew/Colors.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/andrew/DrawSnakeGamePanel.java" afterPath="$PROJECT_DIR$/src/com/andrew/DrawSnakeGamePanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/andrew/GameComponentManager.java" afterPath="$PROJECT_DIR$/src/com/andrew/GameComponentManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/andrew/Kibble.java" afterPath="$PROJECT_DIR$/src/com/andrew/Kibble.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/andrew/SettingsGUI.java" afterPath="$PROJECT_DIR$/src/com/andrew/SettingsGUI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/andrew/SnakeGame.java" afterPath="$PROJECT_DIR$/src/com/andrew/SnakeGame.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/andrew/settingsGUI.java" afterPath="$PROJECT_DIR$/src/com/andrew/settingsGUI.java" />
     </list>
     <ignored path="SNAKE-ORIGINAL.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -790,7 +786,7 @@
       <workItem from="1460856121035" duration="1037000" />
       <workItem from="1460857890011" duration="25402000" />
       <workItem from="1460914650535" duration="2401000" />
-      <workItem from="1460924004921" duration="17351000" />
+      <workItem from="1460924004921" duration="17879000" />
     </task>
     <task id="LOCAL-00001" summary="GameComponentManager class to manage Snake, Kibble, other game play objects">
       <created>1458757336662</created>
@@ -882,11 +878,17 @@
       <option name="project" value="LOCAL" />
       <updated>1460950535275</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Comments">
+      <created>1460950885062</created>
+      <option name="number" value="00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1460950885062</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93767000" />
+    <option name="totallyTimeSpent" value="94295000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="0" width="3214" height="1741" extended-state="0" />
@@ -976,7 +978,8 @@
     <MESSAGE value="Static&#10;Set timer and game clock to be static&#10;Moved snake creation to a new method in SnakeGame (was previously in initializeGame() so that two snakes are not created when SettingsGUI runs initializeGame()" />
     <MESSAGE value="Hearts&#10;Added a 1/20 chance that a Kibble will turn red and become a &quot;Heart&quot;, which gives the player one more life instead of making the snake larger.&#10;Reverted the changes made earlier to static object initializations" />
     <MESSAGE value="FindBugs plugin&#10;Ran FINDBUGS plugin and fixed what issues I could" />
-    <option name="LAST_COMMIT_MESSAGE" value="FindBugs plugin&#10;Ran FINDBUGS plugin and fixed what issues I could" />
+    <MESSAGE value="Comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="Comments" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

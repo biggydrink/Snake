@@ -1,50 +1,13 @@
 package com.andrew;
 
-
-/*
-Customization options for Settings GUI
-
-Difficulty-related:
-    -Game board size: how many squares will be used
-	    -could either change max pixels or change square size (probably square size)
-		SnakeGame.squareSize (clara default 50)
-		50 Large
-		25 Medium
-		20 Small
-		10 Crazy
-		combo list
-
-	-adjust game speed
-		-give predetermined ratings, i.e. 1-5 or something
-		SnakeGame.clockInterval (clara default 500)
-		combo list
-	-adjust wall size
-		-consecutive walls
-		TBD
-	-adjust number of random walls
-		TBD
-	-adjust snake growth rate (slower growth = harder? but also massive growth = harder)
-		Snake.growthIncrement
-	-Somehow give a number of lives and allow player to start over at same size
-		TBD
-
-Other
-    -turn on or off wall clipping
-		SnakeGame.wrap
-		check box
-	-Choose your color scheme (predetermined schemas)
-		TBD
-		DrawSnakeGamePanel new Colors(color name);
-		combo list
-
- */
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
 
+
+/** A separate GUI that can be made visible by the user, so they can choose custom options in the game */
 public class SettingsGUI extends JFrame {
 
     private JPanel rootPanel;
@@ -168,12 +131,9 @@ public class SettingsGUI extends JFrame {
         }
 
         // Colors
-        for (String color : colors.colorList) {
+        for (String color : colors.getColorList()) {
             adjustColorSchemeComboBox.addItem(color);
         }
-
-
-
     }
 
 
@@ -192,12 +152,9 @@ public class SettingsGUI extends JFrame {
 
     }
 
+    // Runs when the implement settings button is pushed, updates game settings
 
     public void implementSettings() {
-
-        // run when button is pushed
-        // push all selected settings
-        // should make sure settings are pushed, OR give default settings to all combo boxes
 
         SnakeGame.squareSize = squareSizeMap.get(adjustSquareSizeComboBox.getSelectedItem());
         SnakeGame.clockInterval = gameSpeedMap.get(adjustGameSpeedComboBox.getSelectedItem());
@@ -209,7 +166,5 @@ public class SettingsGUI extends JFrame {
 
         this.setVisible(false); // back to invisible after implementing settings, made visible again by pressing o (see game controls)
     }
-
-
 
 }
